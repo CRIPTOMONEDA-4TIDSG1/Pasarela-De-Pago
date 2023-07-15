@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Crypt.ArqLimpia.BL.DTOs\Crypto.ArqLimpia.BL.DTOs.csproj" />
+    <ProjectReference Include="..\Crypto.ArqLimpia.BL.DTOs\Crypto.ArqLimpia.BL.DTOs.csproj" />
     <ProjectReference Include="..\Crypto.ArqLimpia.BL.Interfaces\Crypto.ArqLimpia.BL.Interfaces.csproj" />
     <ProjectReference Include="..\Crypto.ArqLimpia.EN.Interfaces\Crypto.ArqLimpia.EN.Interfaces.csproj" />
     <ProjectReference Include="..\Crypto.ArqLimpia.EN\Crypto.ArqLimpia.EN.csproj" />
