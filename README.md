@@ -1,4 +1,4 @@
-# esfe_agape
+# Proyecto Esfe Agape
 practicas modulo 2 de MVC con c#
 <img
  alt="logo_.net"
@@ -7,7 +7,12 @@ practicas modulo 2 de MVC con c#
 # Pasarela de pago para compra de cryptomoneda
 
 1. Crear archivo .env
-2. Correr el proyecto
+2. Definir las variables de entorno segun el archivo: ."env.example"
+3. Correr el contenedor
+```
+docker compose up -d
+```
+4. Ejecutar el programa
 ```
 dotnet run 
 ```

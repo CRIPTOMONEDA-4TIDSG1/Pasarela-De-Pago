@@ -1,11 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Crypto.ArqLimpia.DAL
 {
@@ -15,7 +11,6 @@ namespace Crypto.ArqLimpia.DAL
         {
             services.AddDbContext<CryptoDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("DbConn")));
-
          //   services.AddScoped<, >();
 
             return services;

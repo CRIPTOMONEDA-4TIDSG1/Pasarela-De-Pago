@@ -1,0 +1,23 @@
+version: '3.8'
+
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD={DB_PASSWORD}
+      - MSSQL_PID=Express
+    command:
+      - /bin/bash
+      - -c
+      - |
+        /opt/mssql/bin/sqlservr & sleep 30s \
+        && /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P {DB_PASSWORD} -Q "CREATE DATABASE {DB_NAME}" \
+        && /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P {DB_PASSWORD} -Q "CREATE LOGIN {DB_USER} WITH PASSWORD = '{DB_PASSWORD}'; USE {DB_NAME}; CREATE USER {DB_USER} FOR LOGIN {DB_USER}; ALTER ROLE db_owner ADD MEMBER {DB_USER}" \
+        && wait
+    ports:
+      - 1433:1433
+    volumes:
+      - ./data:/var/opt/mssql

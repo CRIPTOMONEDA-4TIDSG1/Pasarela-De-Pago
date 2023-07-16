@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using Crypto.ArqLimpia.BL.DTOs;
 
 namespace Crypto.ArqLimpia.BL.DTOs
@@ -14,6 +10,7 @@ namespace Crypto.ArqLimpia.BL.DTOs
         public DateTime DateOrder { get; set; }
         public string HeadLine { get; set; }
     }
+
     public class SearchOrderInputDTOs
     {
         public int Id { get; set; }

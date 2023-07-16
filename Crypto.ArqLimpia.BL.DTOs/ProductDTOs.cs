@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+
+
 
 namespace Crypto.ArqLimpia.BL.DTOs
 {
@@ -58,8 +57,6 @@ namespace Crypto.ArqLimpia.BL.DTOs
     //  DTOs PARA ACTUALIZAR PRODUCTOS
     public class UpdateProductInputDTOs
     {
-        public int Id { get; set; }
-
         [Required(ErrorMessage = "The field Name is required")]
         [StringLength(50)]
         [MinLength(5, ErrorMessage = "The Title must have at least 5 characters.")]
@@ -95,11 +92,6 @@ namespace Crypto.ArqLimpia.BL.DTOs
 
     }
 
-
-    public class GetByIdProductInputDTO
-    {
-        public int Id { get; set; }
-    }
     public class GetByIdProductOutputDTO
     {
         public int Id { get; set; }
