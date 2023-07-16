@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Crypto.ArqLimpia.EN;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace Crypto.ArqLimpia.DAL
 {
     public class CryptoDbContext : DbContext
     {
+        public DbSet<ProductEN> Products { get; set; }
         public CryptoDbContext(DbContextOptions<CryptoDbContext> options) : base(options) { }
 
     }

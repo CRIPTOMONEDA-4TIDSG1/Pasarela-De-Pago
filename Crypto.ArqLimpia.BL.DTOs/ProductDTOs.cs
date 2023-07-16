@@ -96,7 +96,7 @@ namespace Crypto.ArqLimpia.BL.DTOs
     {
         public int Id { get; set; }
         public string NameProduct { get; set; }
-        public string Description { get; set; }
+        public string DescriptionProduct { get; set; }
         public string Tipe { get; set; }
         public int Amount { get; set; }
     }
@@ -111,7 +111,7 @@ namespace Crypto.ArqLimpia.BL.DTOs
     {
         public int Id { get; set; }
         public string NameProduct { get; set; }
-        public string Description { get; set; }
+        public string DescriptionProduct { get; set; }
         public string Tipe { get; set; }
         public int Amount { get; set; }
 
