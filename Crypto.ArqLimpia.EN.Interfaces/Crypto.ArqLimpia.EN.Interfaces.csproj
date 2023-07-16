@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Crypto.ArqLimpia.EN\Crypto.ArqLimpia.EN.csproj" />
+  </ItemGroup>
+
 </Project>

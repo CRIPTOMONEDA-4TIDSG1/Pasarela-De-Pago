@@ -1,13 +1,24 @@
 USE [master]
 GO
-CREATE DATABASE [ESFEDB]
-GO
-USE [ESFEDB]
-GO
--- Crear la tabla de User
-CREATE TABLE [dbo].[User](
-  [Id] [int] PRIMARY KEY IDENTITY(1,1) NOT NULL,
-  [Email] [varchar](100) NOT NULL,
-  [Password] [varchar](30) NOT NULL,
-  [Name] [varchar](50) NOT NULL
-)
+create database PaymentGateway;
+use PaymentGateway;
+
+create table Cryptocurrencies(
+Id int identity(1,1) primary key ,
+NameProduct varchar (50) not null,
+DescriptionProdut varchar (100),
+Tipe varchar (20) not null,
+Amount int not null
+);
+
+create table PurchaseOrder (
+ Id int identity(1,1) primary key,
+ DateOrder date not null,
+ Headline varchar (30) not null
+ );
+
+ create table CryptocurrencyPurchaseOrder(
+ Id int identity(1,1) primary key,
+ IdCryptocurrencies int,
+ IdPurchaseOrder int
+ );
