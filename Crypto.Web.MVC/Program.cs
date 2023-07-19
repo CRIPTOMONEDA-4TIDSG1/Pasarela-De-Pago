@@ -2,6 +2,8 @@ using Crypto.ArqLimpia.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddInventoryDependecies(builder.Configuration);

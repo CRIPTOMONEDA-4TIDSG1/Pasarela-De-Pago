@@ -11,6 +11,12 @@ namespace Crypto.ArqLimpia.BL
         readonly IProduct _productDAL;
         readonly IUnitOfWork _unitWork;
 
+        public ProductBL( IProduct productDAL, IUnitOfWork unitOfWork)
+        {
+            _productDAL = productDAL;
+            _unitWork = unitOfWork;
+        }
+
         public async Task<CreateProductOutputDTOs> Create(CreateProductInputDTOs pProducts)
         {
             ProductEN newProduct = new ProductEN()
@@ -67,10 +73,15 @@ namespace Crypto.ArqLimpia.BL
 
         public async Task<List<getProductsOutputDTOs>> Search(getProductsInputDTOs pProducts)
         {
-            List<ProductEN> products = await _productDAL.Search(new ProductEN { 
+
+            var product = new ProductEN
+            {
                 NameProduct = pProducts.ProductName,
                 DescriptionsProduct = pProducts.ProductDescription,
-                Tipe = pProducts.Type, Amount = pProducts.Amount });
+                Tipe = pProducts.Type,
+                Amount = pProducts.Amount
+            };
+            List<ProductEN> products = await _productDAL.Search(product);
 
             List<getProductsOutputDTOs> list = new List<getProductsOutputDTOs>();
             products.ForEach(p => list.Add(new getProductsOutputDTOs
