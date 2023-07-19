@@ -20,6 +20,7 @@ namespace Crypto.ArqLimpia.DAL
             options.UseSqlServer($"Server={host};Database={dbName};User Id={user};Password={password};"));
             services.AddScoped<IProduct, ProductDAL>();
             services.AddScoped<IUnitOfWork, UnitOfWork >();
+            
             return services;
         }
         
