@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Crypto.ArqLimpia.BL.DTOs;
 
 namespace Crypto.ArqLimpia.EN.Interfaces
 {
@@ -13,7 +9,7 @@ namespace Crypto.ArqLimpia.EN.Interfaces
         void Delete(ProductEN pProducts);
         Task<ProductEN> GetById(ProductEN pUser);
 
-        Task<List<ProductEN>> Search(ProductEN pUser);
+        Task<List<ProductEN>> Search(getProductsInputDTOs pUser);
         Task<ProductEN> GetById(int id);
     }
 }

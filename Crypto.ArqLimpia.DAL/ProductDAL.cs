@@ -1,6 +1,7 @@
 ﻿using Crypto.ArqLimpia.EN;
 using Crypto.ArqLimpia.EN.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Crypto.ArqLimpia.BL.DTOs;
 
 namespace Crypto.ArqLimpia.DAL
 {
@@ -38,20 +39,20 @@ namespace Crypto.ArqLimpia.DAL
             dbContext.Products.Update(pProducts);
         }
 
-        public async Task<List<ProductEN>> Search(ProductEN pProducts)
+        public async Task<List<ProductEN>> Search(getProductsInputDTOs pProducts)
         {
             IQueryable<ProductEN> query = dbContext.Products.AsQueryable();
 
             // Filtrar por Nombre
-            if (!string.IsNullOrEmpty(pProducts.NameProduct))
+            if (!string.IsNullOrEmpty(pProducts.ProductName))
             {
-                query = query.Where(p => p.NameProduct.Contains(pProducts.NameProduct));
+                query = query.Where(p => p.NameProduct.Contains(pProducts.ProductName));
             }
 
             // Filtrar por Tipo
-            if (!string.IsNullOrEmpty(pProducts.Tipe))
+            if (!string.IsNullOrEmpty(pProducts.Type))
             {
-                query = query.Where(p => p.Tipe.Contains(pProducts.Tipe));
+                query = query.Where(p => p.Tipe.Contains(pProducts.Type));
             }
 
             return await query.ToListAsync();
