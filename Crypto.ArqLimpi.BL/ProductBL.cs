@@ -73,19 +73,7 @@ namespace Crypto.ArqLimpia.BL
 
         public async Task<List<getProductsOutputDTOs>> Search(getProductsInputDTOs pProducts)
         {
-<<<<<<< HEAD
-
-            var product = new ProductEN
-            {
-                NameProduct = pProducts.ProductName,
-                DescriptionsProduct = pProducts.ProductDescription,
-                Tipe = pProducts.Type,
-                Amount = pProducts.Amount
-            };
-            List<ProductEN> products = await _productDAL.Search(product);
-=======
             List<ProductEN> products = await _productDAL.Search(pProducts);
->>>>>>> 3ae8a45 (cambio de referencia)
 
             List<getProductsOutputDTOs> list = new List<getProductsOutputDTOs>();
             products.ForEach(p => list.Add(new getProductsOutputDTOs
