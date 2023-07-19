@@ -1,0 +1,45 @@
+﻿@model Crypto.ArqLimpia.BL.DTOs.CreateProductInputDTOs;
+
+@{
+    ViewData["Title"] = "Guardar";
+
+}
+
+<div class="card">
+    <div class="card-header">
+        Create new Product
+    </div>
+    <div class="card-body">
+
+        <form asp-action="Create" asp-controller="Product" method="post" enctype="multipart/form-data">
+
+            <!--<input asp-for="IdProduct" type="hidden" class="form-control" /> -->
+            <div class="mb-3">
+                <label class="form-label">Product Name</label>
+                <input asp-for="ProductName" type="text" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+
+              
+
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea asp-for="ProductDescription" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="ProductDescription" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Amount</label>
+                    <input asp-for="Amount" type="text" class="form-control" />
+                    <span asp-validation-for="Amount" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary"><i class="bi bi-download"></i>Create</button>
+                <a asp-action="Index" asp-controller="Product" class="btn btn-warning"><i class="bi bi-arrow-left"></i>Back tolist</a>
+        </form>
+
+    </div>
+</div>
+
+@* @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} *@

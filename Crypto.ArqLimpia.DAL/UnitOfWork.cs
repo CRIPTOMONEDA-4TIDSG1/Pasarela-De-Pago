@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Crypto.ArqLimpia.EN.Interfaces;
 
-using Crypto.ArqLimpia.EN.Interfaces;
+
+
 namespace Crypto.ArqLimpia.DAL
 {
     public class UnitOfWork : IUnitOfWork

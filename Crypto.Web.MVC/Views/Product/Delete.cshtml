@@ -1,0 +1,26 @@
+﻿@model Crypto.ArqLimpia.BL.DTOs.DeleteProductsInputDTOs
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="card">
+    <div class="card-header">
+        Update Product
+    </div>
+    <div class="card-body">
+
+        <form asp-action="Delete" asp-controller="Product" method="post">
+
+            <input asp-for="Id" type="hidden" class="form-control" />
+
+            <div class="alert alert-danger" role="alert">
+                ¡You want to delete the product!
+            </div>
+
+            <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i>Delete</button>
+            <a asp-action="Index" asp-controller="Product" class="btn btn-warning"><i class="bi bi-arrow-left"></i>back to list</a>
+        </form>
+
+    </div>
+</div>

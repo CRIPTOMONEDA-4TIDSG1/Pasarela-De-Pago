@@ -12,17 +12,17 @@ namespace Crypto.ArqLimpia.BL.DTOs
         [Required(ErrorMessage = "The field Name is required")]
         [StringLength(50)]
         [MinLength(5, ErrorMessage = "The Title must have at least 5 characters.")]
-        public string NameProduct { get; set; }
+        public string ProductName { get; set; }
 
 
         [Required(ErrorMessage = "The field Description is required")]
         [StringLength(150)]
-        public string DescriptionProduct { get; set; }
+        public string ProductDescription { get; set; }
 
 
         [Required(ErrorMessage = "The field Tipe is required")]
         [StringLength(50)]
-        public string Tipe { get; set; }
+        public string Type { get; set; }
 
 
         [Required(ErrorMessage = "The field Amount is required")]
@@ -34,9 +34,9 @@ namespace Crypto.ArqLimpia.BL.DTOs
     public class CreateProductOutputDTOs
     {
         public int Id { get; set; }
-        public string NameProduct { get; set; }
-        public string DescriptionProduct { get; set; }
-        public string Tipe { get; set; }
+        public string ProductName { get; set; }
+        public string ProductDescription{ get; set; }
+        public string Type { get; set; }
         public int Amount { get; set; }
 
     }
@@ -57,20 +57,22 @@ namespace Crypto.ArqLimpia.BL.DTOs
     //  DTOs PARA ACTUALIZAR PRODUCTOS
     public class UpdateProductInputDTOs
     {
+         public int Id { get; set; }
+
         [Required(ErrorMessage = "The field Name is required")]
         [StringLength(50)]
         [MinLength(5, ErrorMessage = "The Title must have at least 5 characters.")]
-        public string NameProduct { get; set; }
+        public string ProductName { get; set; }
 
 
         [Required(ErrorMessage = "The field Description is required")]
         [StringLength(150)]
-        public string DescriptionProduct { get; set; }
+        public string ProductDescription { get; set; }
 
 
         [Required(ErrorMessage = "The field Tipe is required")]
         [StringLength(50)]
-        public string Tipe { get; set; }
+        public string Type { get; set; }
 
 
         [Required(ErrorMessage = "The field Amount is required")]
@@ -85,9 +87,9 @@ namespace Crypto.ArqLimpia.BL.DTOs
     public class UpdateProductOutputDTOs
     {
         public int Id { get; set; }
-        public string NameProduct  { get; set; }
-        public string DescriptionProduct { get; set; }
-        public string Tipe { get; set; }
+        public string ProductName  { get; set; }
+        public string ProductDescription { get; set; }
+        public string Type { get; set; }
         public int Amount { get; set; }
 
     }
@@ -95,24 +97,27 @@ namespace Crypto.ArqLimpia.BL.DTOs
     public class GetByIdProductOutputDTO
     {
         public int Id { get; set; }
-        public string NameProduct { get; set; }
-        public string DescriptionProduct { get; set; }
-        public string Tipe { get; set; }
+        public string ProductName { get; set; }
+        public string ProductDescription { get; set; }
+        public string Type { get; set; }
         public int Amount { get; set; }
     }
 
     //  DTOs PARA BUSCAR PRODUCTOS
-    public class SearchProductInputDTOs
+    public class getProductsInputDTOs
     {
         public int Id { get; set; }
-        public string NameProduct { get; set; }
+        public string ProductName { get; set; }
+        public string ProductDescription { get; set; }
+        public string Type { get; set; }
+        public int Amount { get; set; }
     }
-    public class SearchProducOutputDTOs
+    public class getProductsOutputDTOs
     {
         public int Id { get; set; }
-        public string NameProduct { get; set; }
-        public string DescriptionProduct { get; set; }
-        public string Tipe { get; set; }
+        public string ProductName { get; set; }
+        public string ProductDescription { get; set; }
+        public string Type { get; set; }
         public int Amount { get; set; }
 
     }

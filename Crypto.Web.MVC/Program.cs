@@ -1,17 +1,10 @@
-
-using Crypto.Web.MVC;
+using Crypto.ArqLimpia.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var root = Directory.GetCurrentDirectory();
-var parentDirectory = Directory.GetParent(root)?.FullName;
-var dotenv = Path.Combine(parentDirectory, ".env");
-DotEnv.Load(dotenv);
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-
+builder.Services.AddInventoryDependecies(builder.Configuration);
 
 var app = builder.Build();
 
@@ -39,7 +32,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Product}/{action=Index}/{id?}");
 
 app.Run();
 

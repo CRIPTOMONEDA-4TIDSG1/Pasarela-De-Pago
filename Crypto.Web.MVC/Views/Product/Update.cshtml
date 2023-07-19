@@ -1,0 +1,51 @@
+﻿@model Crypto.ArqLimpia.BL.DTOs.UpdateProductInputDTOs
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        Edit Product
+    </div>
+    <div class="card-body">
+
+        <form asp-action="Edit" asp-controller="Product" method="post">
+
+            <input asp-for="Id" type="hidden" class="form-control" /> 
+            
+            <div class="mb-3">
+                <label class="form-label">Product Name</label>
+                <input asp-for="ProductName" type="text" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea asp-for="ProductDescription" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="ProductDescription" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Type</label>
+                    <textarea asp-for="Type" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="Type" class="text-danger"></span>
+                </div>
+
+
+                <div class="mb-3">
+                    <label class="form-label">Amount</label>
+                    <input asp-for="Amount" type="text" class="form-control" />
+                    <span asp-validation-for="Amount" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary"><i class="bi bi-download"></i>support</button>
+                <a asp-action="Index" asp-controller="Product" class="btn btn-warning"><i class="bi bi-arrow-left"></i>Back to the list</a>
+        </form>
+
+    </div>
+</div>
+
+@* @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} *@

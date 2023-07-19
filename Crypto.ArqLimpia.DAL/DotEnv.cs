@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace Crypto.Web.MVC
+namespace Crypto.ArqLimpia.DAL
 {
     public class DotEnv
     {
@@ -22,6 +22,15 @@ namespace Crypto.Web.MVC
 
                 Environment.SetEnvironmentVariable(parts[0], parts[1]);
             }
+        }
+
+        public static void LoadEnv(){
+
+            var root = Directory.GetCurrentDirectory();
+            var parentDirectory = Directory.GetParent(root)?.FullName;
+            var dotenv = Path.Combine(parentDirectory, ".env");
+            Load(dotenv);
+
         }
         
     }

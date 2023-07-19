@@ -13,6 +13,7 @@ namespace Crypto.ArqLimpia.IoC
         {
             services.AddDALDependecies(configuration);
             services.AddBLDependecies();
+        
             return services;
         }
     }
