@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Crypto.ArqLimpia.BL.DTOs\Crypto.ArqLimpia.BL.DTOs.csproj" />
     <ProjectReference Include="..\Crypto.ArqLimpia.DAL\Crypto.ArqLimpia.DAL.csproj" />
+    <ProjectReference Include="..\Crypto.ArqLimpia.EN\Crypto.ArqLimpia.EN.csproj" />
   </ItemGroup>
 
 </Project>
