@@ -10,7 +10,7 @@ namespace Crypto.ArqLimpia.EN
     {
         public int Id { get; set; }
 
-        public string NameProduct { get; set; }
+        public string ProductName { get; set; }
 
         public string DescriptionsProduct { get; set; }
 

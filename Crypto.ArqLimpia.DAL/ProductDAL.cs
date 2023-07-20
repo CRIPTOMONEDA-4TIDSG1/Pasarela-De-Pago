@@ -46,7 +46,7 @@ namespace Crypto.ArqLimpia.DAL
             // Filtrar por Nombre
             if (!string.IsNullOrEmpty(pProducts.ProductName))
             {
-                query = query.Where(p => p.NameProduct.Contains(pProducts.ProductName));
+                query = query.Where(p => p.ProductName.Contains(pProducts.ProductName));
             }
 
             // Filtrar por Tipo

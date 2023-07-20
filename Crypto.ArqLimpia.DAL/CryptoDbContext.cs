@@ -9,8 +9,5 @@ namespace Crypto.ArqLimpia.DAL
         public DbSet<ProductEN> Products { get; set; }
         public CryptoDbContext(DbContextOptions<CryptoDbContext> options) : base(options) { }
 
-        public CryptoDbContext()
-        {
-        }
     }
 }

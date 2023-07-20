@@ -17,9 +17,9 @@ namespace Crypto.Web.MVC.Controllers
 
         }
         // GET: ProductController
-        public async Task<IActionResult> Index(getProductsInputDTOs products)
+        public async Task<IActionResult> Index(getProductsInputDTOs pProduct)
         {
-            var list = await _productBL.Search(products);
+            var list = await _productBL.Search(pProduct);
             return View(list);
         }
 
@@ -41,23 +41,23 @@ namespace Crypto.Web.MVC.Controllers
 
 
         [HttpPost]
-        public async Task <ActionResult> Create (CreateProductInputDTOs product)
+        public async Task<ActionResult> Create(CreateProductInputDTOs pProduct)
         {
             try
             {
-                CreateProductOutputDTOs result = await _productBL.Create(product);
+                CreateProductOutputDTOs result = await _productBL.Create(pProduct);
 
-                if (result != null) 
-
-                return RedirectToAction(nameof(Index));
-
+                if (result != null)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
                 else
                 {
                     ViewBag.ErrorMessage = "No se pudo agregar el registro";
-                    return View(product);
+                    return View(pProduct);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ViewBag.ErrorMessage = ex.Message;
                 return View();
@@ -74,11 +74,11 @@ namespace Crypto.Web.MVC.Controllers
 
         // POST: ProductController/Edit/5
         [HttpPost]
-        public async Task<ActionResult> Update (UpdateProductInputDTOs product )
+        public async Task<ActionResult> Update (UpdateProductInputDTOs pProduct)
         {
             try
             {
-                UpdateProductOutputDTOs editProduct = await _productBL.Update(product);
+                UpdateProductOutputDTOs editProduct = await _productBL.Update(pProduct);
                 if(editProduct != null){
 
                 return RedirectToAction(nameof(Index));
@@ -86,7 +86,7 @@ namespace Crypto.Web.MVC.Controllers
                 }else{
 
                     ViewBag.ErrorMessage = "Product not updated";
-                    return View(product);
+                    return View(pProduct);
 
                 }
             }

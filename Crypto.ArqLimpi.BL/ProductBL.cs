@@ -21,8 +21,8 @@ namespace Crypto.ArqLimpia.BL
         {
             ProductEN newProduct = new ProductEN()
             {
-                NameProduct = pProducts.ProductName,
-                DescriptionsProduct = pProducts.ProductDescription,
+                ProductName = pProducts.ProductName,
+                DescriptionsProduct = pProducts.DescriptionsProduct,
                 Tipe = pProducts.Type,
                 Amount = pProducts.Amount,
             };
@@ -38,8 +38,8 @@ namespace Crypto.ArqLimpia.BL
             CreateProductOutputDTOs productsOutput = new CreateProductOutputDTOs()
             {
                 Id = newProduct.Id,
-                ProductName = newProduct.NameProduct,
-                ProductDescription = newProduct.DescriptionsProduct,
+                ProductName = newProduct.ProductName,
+                DescriptionsProduct = newProduct.DescriptionsProduct,
                 Type = newProduct.Tipe,
                 Amount = newProduct.Amount,
 
@@ -66,8 +66,8 @@ namespace Crypto.ArqLimpia.BL
             return new GetByIdProductOutputDTO
             {
                 Id = product.Id,
-                ProductName = product.NameProduct,
-                ProductDescription = product.DescriptionsProduct
+                ProductName = product.ProductName,
+                DescriptionsProduct = product.DescriptionsProduct
             };
         }
 
@@ -79,8 +79,8 @@ namespace Crypto.ArqLimpia.BL
             products.ForEach(p => list.Add(new getProductsOutputDTOs
             {
                 Id = p.Id,
-                ProductName = p.NameProduct,
-                ProductDescription = p.DescriptionsProduct,
+                ProductName = p.ProductName,
+                DescriptionsProduct = p.DescriptionsProduct,
                 Type = p.Tipe,
                 Amount = p.Amount
             }));
@@ -94,8 +94,8 @@ namespace Crypto.ArqLimpia.BL
 
             if (productUpdate.Id == pProducts.Id)
             {
-                productUpdate.NameProduct = pProducts.ProductName;
-                productUpdate.DescriptionsProduct = pProducts.ProductDescription;
+                productUpdate.ProductName = pProducts.ProductName;
+                productUpdate.DescriptionsProduct = pProducts.DescriptionsProduct;
                 productUpdate.Tipe = pProducts.Type;
                 productUpdate.Amount = pProducts.Amount;
 
@@ -106,8 +106,8 @@ namespace Crypto.ArqLimpia.BL
                 UpdateProductOutputDTOs product = new UpdateProductOutputDTOs()
                 {
                     Id = productUpdate.Id,
-                    ProductName = productUpdate.NameProduct,
-                    ProductDescription = productUpdate.DescriptionsProduct,
+                    ProductName = productUpdate.ProductName,
+                    DescriptionsProduct = productUpdate.DescriptionsProduct,
                     Type = productUpdate.Tipe,
                     Amount = productUpdate.Amount
                 };
