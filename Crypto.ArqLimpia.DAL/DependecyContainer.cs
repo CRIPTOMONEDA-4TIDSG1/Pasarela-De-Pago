@@ -19,6 +19,7 @@ namespace Crypto.ArqLimpia.DAL
             services.AddDbContext<CryptoDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("conn")));
             services.AddScoped<IProduct, ProductDAL>();
+            services.AddScoped<IPucharseOrder, PucharseOrderDAL>();
             services.AddScoped<IUnitOfWork, UnitOfWork >();
             
             return services;

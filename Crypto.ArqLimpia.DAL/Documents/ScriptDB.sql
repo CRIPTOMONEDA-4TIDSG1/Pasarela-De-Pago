@@ -16,7 +16,7 @@ create table CryptoOrder(
  DateOrder date not null,
  email varchar (90) not null ,
  CryptoName varchar (50) not null,
- price: decimal(5,2) not null,
+ price decimal(5,2) not null,
  Amount int not null,
  total int not null,
  );
