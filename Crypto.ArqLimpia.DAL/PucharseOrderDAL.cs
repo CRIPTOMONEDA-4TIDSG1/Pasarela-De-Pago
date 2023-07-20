@@ -6,19 +6,21 @@ namespace Crypto.ArqLimpia.DAL
 {
     public class PucharseOrderDAL : IPucharseOrder
     {
+        private readonly CryptoDbContext _dbContext;
+
+        public PucharseOrderDAL(CryptoDbContext dbContext){
+            _dbContext = dbContext;
+        }
+
         public void Create(OrderEN pOrder)
         {
-            throw new NotImplementedException();
+            _dbContext.CryptoOrder.Add(pOrder);
         }
 
-        public Task<List<OrderEN>> Search(OrderEN pOrder)
+        public async Task<OrderEN> GetById(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        Task<OrderEN> IPucharseOrder.GetById(int id)
-        {
-            throw new NotImplementedException();
+            OrderEN order = await _dbContext.CryptoOrder.FindAsync(id);
+            return order;
         }
     }
 }
