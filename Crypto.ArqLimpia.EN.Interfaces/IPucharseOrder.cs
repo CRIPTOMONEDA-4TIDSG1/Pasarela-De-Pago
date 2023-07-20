@@ -6,8 +6,8 @@ namespace Crypto.ArqLimpia.EN.Interfaces
 {
     public  interface IPucharseOrder
     {
-        void Create(PurchaseOrder pOrder);
-        Task<PurchaseOrder> GetById(int id);
-        Task<List<PurchaseOrder>> Search(PurchaseOrder pOrder);
+        void Create(OrderEN pOrder);
+        Task<OrderEN> GetById(int id);
+        Task<List<OrderEN>> Search(OrderEN pOrder);
     }
 }

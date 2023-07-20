@@ -7,11 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotEnv.Net" Version="3.1.2" />
-    <PackageReference Include="DotNetEnv" Version="2.5.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="7.0.0" />
-    </ItemGroup>
+    <PackageReference Include="Stripe.net" Version="41.24.0" />
+  </ItemGroup>
    <ItemGroup>
+     <ProjectReference Include="..\Crypto.ArqLimpia.EN\Crypto.ArqLimpia.EN.csproj" />
      <ProjectReference Include="..\Crypto.ArqLimpia.DAL\Crypto.ArqLimpia.DAL.csproj" />
      <ProjectReference Include="..\Crypto.ArqLimpia.BL.DTOs\Crypto.ArqLimpia.BL.DTOs.csproj" />
      <ProjectReference Include="..\Crypto.ArqLimpia.IoC\Crypto.ArqLimpia.IoC.csproj" />

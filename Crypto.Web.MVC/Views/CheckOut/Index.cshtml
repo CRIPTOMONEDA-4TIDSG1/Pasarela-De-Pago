@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Crypto.ArqLimpia.EN.ProductEN>
+
+<br />
+<table class="table table-responsive table-light table-bordered" style="width:100%">
+    <tr>
+        <th>NameProduct</th>
+        <th>DescriptionProduct</th>
+        <th>Price</th>
+        <th>Amount</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CryptoName</td>
+            <td>@item.DescriptionCrypto</td>
+            <td>@item.price</td>
+            <td>@item.Amount</td>
+            <td>@(item.price* item.Amount)</td>
+        </tr>
+    }
+</table>
+<br />
+<p>
+    <a asp-action="CheckOut" asp-controller="CheckOut">CheckOut</a>
+</p>
+ 

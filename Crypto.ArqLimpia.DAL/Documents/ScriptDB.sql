@@ -14,7 +14,9 @@ Amount int not null
 create table CryptoOrder(
  Id int identity(1,1) primary key,
  DateOrder date not null,
- Headline varchar (30) not null
+ Headline varchar (30) not null,
+ Subtotal int not null,
+ total int not null,
  );
 
  create table CryptocurrencyOrder(

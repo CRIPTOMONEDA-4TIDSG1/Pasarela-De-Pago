@@ -6,17 +6,17 @@ namespace Crypto.ArqLimpia.DAL
 {
     public class PucharseOrderDAL : IPucharseOrder
     {
-        public void Create(PurchaseOrder pOrder)
+        public void Create(OrderEN pOrder)
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<PurchaseOrder>> Search(PurchaseOrder pOrder)
+        public Task<List<OrderEN>> Search(OrderEN pOrder)
         {
             throw new NotImplementedException();
         }
 
-        Task<PurchaseOrder> IPucharseOrder.GetById(int id)
+        Task<OrderEN> IPucharseOrder.GetById(int id)
         {
             throw new NotImplementedException();
         }
