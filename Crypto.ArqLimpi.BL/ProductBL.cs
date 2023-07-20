@@ -26,13 +26,7 @@ namespace Crypto.ArqLimpia.BL
                 price = pProducts.price,
                 Amount = pProducts.Amount,
             };
-            ProductEN existingProduct = await _productDAL.GetById(newProduct);
-
-            // Verificar si ya existe un producto con el mismo nombre (NO FUNCIONA)
-            if (existingProduct != null)
-            {
-                throw new ArgumentException("Ya existe un producto con este nombre.");
-            }
+            
             _productDAL.Create(newProduct);
             await _unitWork.SaveChangesAsync();
             CreateProductOutputDTOs productsOutput = new CreateProductOutputDTOs()

@@ -22,7 +22,7 @@ namespace Crypto.ArqLimpia.BL.DTOs
 
         [Required(ErrorMessage = "The field Tipe is required")]
         [Range(1, double.MaxValue, ErrorMessage = "The field price must be greater than 1")]
-        public double price { get; set; }
+        public decimal price { get; set; }
 
 
         [Required(ErrorMessage = "The field Amount is required")]
@@ -36,7 +36,7 @@ namespace Crypto.ArqLimpia.BL.DTOs
         public int Id { get; set; }
         public string ProductName { get; set; }
         public string ProductDescription{ get; set; }
-        public double price { get; set; }
+        public decimal price { get; set; }
         public int Amount { get; set; }
 
     }
@@ -72,7 +72,7 @@ namespace Crypto.ArqLimpia.BL.DTOs
 
         [Required(ErrorMessage = "The field Tipe is required")]
         [Range(1, double.MaxValue, ErrorMessage = "The field price must be greater than 1")]
-        public double price { get; set; }
+        public decimal price { get; set; }
 
 
         [Required(ErrorMessage = "The field Amount is required")]
@@ -89,7 +89,7 @@ namespace Crypto.ArqLimpia.BL.DTOs
         public int Id { get; set; }
         public string ProductName  { get; set; }
         public string ProductDescription { get; set; }
-        public double price { get; set; }
+        public decimal price { get; set; }
         public int Amount { get; set; }
 
     }
@@ -99,7 +99,7 @@ namespace Crypto.ArqLimpia.BL.DTOs
         public int Id { get; set; }
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }
-        public double price { get; set; }
+        public decimal price { get; set; }
         public int Amount { get; set; }
     }
 
@@ -109,7 +109,7 @@ namespace Crypto.ArqLimpia.BL.DTOs
         public int Id { get; set; }
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }
-        public double price { get; set; }
+        public decimal price { get; set; }
         public int Amount { get; set; }
     }
     public class getProductsOutputDTOs
@@ -117,7 +117,7 @@ namespace Crypto.ArqLimpia.BL.DTOs
         public int Id { get; set; }
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }
-        public double price { get; set; }
+        public decimal price { get; set; }
         public int Amount { get; set; }
 
     }

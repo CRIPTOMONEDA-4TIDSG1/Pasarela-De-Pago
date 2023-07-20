@@ -1,16 +1,15 @@
-version: '3.8'
+version: '3'
 
 
 services:
   sqlserver:
-    image: mcr.microsoft.com/mssql/server:2019-latest
+    image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: sqlserver
     restart: always
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD={DB_PASSWORD}
+      - SA_PASSWORD=root_123
       - MSSQL_PID=Express
-    command: /bin/bash -c /bin/bash /usr/src/app/entrypoint.sh && /opt/mssql/bin/sqlservr 
     ports:
       - 1433:1433
     volumes:

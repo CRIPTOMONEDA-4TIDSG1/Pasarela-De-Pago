@@ -46,11 +46,11 @@ namespace Crypto.Web.MVC.Controllers
             try
             {
                 CreateProductOutputDTOs result = await _productBL.Create(product);
-
-                if (result != null) 
-
-                return RedirectToAction(nameof(Index));
-
+            
+                if (result != null) {
+                     
+                    return RedirectToAction(nameof(Index));
+                }
                 else
                 {
                     ViewBag.ErrorMessage = "No se pudo agregar el registro";
