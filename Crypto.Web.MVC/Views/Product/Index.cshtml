@@ -19,7 +19,7 @@
                     <h5 class="card-title">@item.ProductName</h5>
                     <p class="card-text">@item.ProductDescription</p>
                     <p class="card-text"><strong>@item.Amount.ToString("C")</strong></p>
-                    <p class="card-text"><strong>Type: </strong>@item.Type</p>
+                    <p class="card-text"><strong>price: </strong>@item.price</p>
                     <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">View details</a>
                     <a asp-action="Edit" asp-controller="Product" asp-route-id="@item.Id" class="btn btn-warning"><i class="bi bi-arrow-left"></i>Edit</a>
                     <a asp-action="Delete" asp-controller="Product" asp-route-id="@item.Id" class="btn btn-warning"><i class="bi bi-arrow-left"></i>Delete</a>

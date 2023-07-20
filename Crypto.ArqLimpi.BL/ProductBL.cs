@@ -21,9 +21,9 @@ namespace Crypto.ArqLimpia.BL
         {
             ProductEN newProduct = new ProductEN()
             {
-                NameProduct = pProducts.ProductName,
-                DescriptionsProduct = pProducts.ProductDescription,
-                Tipe = pProducts.Type,
+                CryptoName = pProducts.ProductName,
+                DescriptionCrypto = pProducts.ProductDescription,
+                price = pProducts.price,
                 Amount = pProducts.Amount,
             };
             ProductEN existingProduct = await _productDAL.GetById(newProduct);
@@ -38,9 +38,9 @@ namespace Crypto.ArqLimpia.BL
             CreateProductOutputDTOs productsOutput = new CreateProductOutputDTOs()
             {
                 Id = newProduct.Id,
-                ProductName = newProduct.NameProduct,
-                ProductDescription = newProduct.DescriptionsProduct,
-                Type = newProduct.Tipe,
+                ProductName = newProduct.CryptoName,
+                ProductDescription = newProduct.DescriptionCrypto,
+                price = newProduct.price,
                 Amount = newProduct.Amount,
 
             };
@@ -66,8 +66,8 @@ namespace Crypto.ArqLimpia.BL
             return new GetByIdProductOutputDTO
             {
                 Id = product.Id,
-                ProductName = product.NameProduct,
-                ProductDescription = product.DescriptionsProduct
+                ProductName = product.CryptoName,
+                ProductDescription = product.DescriptionCrypto
             };
         }
 
@@ -79,9 +79,9 @@ namespace Crypto.ArqLimpia.BL
             products.ForEach(p => list.Add(new getProductsOutputDTOs
             {
                 Id = p.Id,
-                ProductName = p.NameProduct,
-                ProductDescription = p.DescriptionsProduct,
-                Type = p.Tipe,
+                ProductName = p.CryptoName,
+                ProductDescription = p.DescriptionCrypto,
+                price = p.price,
                 Amount = p.Amount
             }));
             return list;
@@ -94,9 +94,9 @@ namespace Crypto.ArqLimpia.BL
 
             if (productUpdate.Id == pProducts.Id)
             {
-                productUpdate.NameProduct = pProducts.ProductName;
-                productUpdate.DescriptionsProduct = pProducts.ProductDescription;
-                productUpdate.Tipe = pProducts.Type;
+                productUpdate.CryptoName = pProducts.ProductName;
+                productUpdate.DescriptionCrypto = pProducts.ProductDescription;
+                productUpdate.price = pProducts.price;
                 productUpdate.Amount = pProducts.Amount;
 
                 _productDAL.Update(productUpdate);
@@ -106,9 +106,9 @@ namespace Crypto.ArqLimpia.BL
                 UpdateProductOutputDTOs product = new UpdateProductOutputDTOs()
                 {
                     Id = productUpdate.Id,
-                    ProductName = productUpdate.NameProduct,
-                    ProductDescription = productUpdate.DescriptionsProduct,
-                    Type = productUpdate.Tipe,
+                    ProductName = productUpdate.CryptoName,
+                    ProductDescription = productUpdate.DescriptionCrypto,
+                    price = productUpdate.price,
                     Amount = productUpdate.Amount
                 };
                 return product;

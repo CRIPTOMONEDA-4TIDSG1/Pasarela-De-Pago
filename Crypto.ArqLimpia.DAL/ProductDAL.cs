@@ -16,17 +16,17 @@ namespace Crypto.ArqLimpia.DAL
 
         public void Create(ProductEN pProducts)
         {
-            dbContext.Products.Add(pProducts);
+            dbContext.Cryptocurrencies.Add(pProducts);
         }
 
         public void Delete(ProductEN pProducts)
         {
-            dbContext.Products.Remove(pProducts);
+            dbContext.Cryptocurrencies.Remove(pProducts);
         }
 
         public async Task<ProductEN> GetById(ProductEN pProducts)
         {
-            ProductEN? product = await dbContext.Products.FirstOrDefaultAsync(s => s.Id == pProducts.Id);
+            ProductEN? product = await dbContext.Cryptocurrencies.FirstOrDefaultAsync(s => s.Id == pProducts.Id);
             if (product != null)
                 return product;
             else
@@ -36,31 +36,26 @@ namespace Crypto.ArqLimpia.DAL
 
         public void Update(ProductEN pProducts)
         {
-            dbContext.Products.Update(pProducts);
+            dbContext.Cryptocurrencies.Update(pProducts);
         }
 
         public async Task<List<ProductEN>> Search(getProductsInputDTOs pProducts)
         {
-            IQueryable<ProductEN> query = dbContext.Products.AsQueryable();
+            IQueryable<ProductEN> query = dbContext.Cryptocurrencies.AsQueryable();
 
             // Filtrar por Nombre
             if (!string.IsNullOrEmpty(pProducts.ProductName))
             {
-                query = query.Where(p => p.NameProduct.Contains(pProducts.ProductName));
+                query = query.Where(p => p.CryptoName.Contains(pProducts.ProductName));
             }
 
-            // Filtrar por Tipo
-            if (!string.IsNullOrEmpty(pProducts.Type))
-            {
-                query = query.Where(p => p.Tipe.Contains(pProducts.Type));
-            }
 
             return await query.ToListAsync();
         }
 
         public async Task<ProductEN> GetById(int id)
         {
-            ProductEN product = await dbContext.Products.FindAsync(id);
+            ProductEN product = await dbContext.Cryptocurrencies.FindAsync(id);
             return product;
         }
     }
