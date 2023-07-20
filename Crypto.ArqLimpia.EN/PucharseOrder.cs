@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Crypto.ArqLimpia.EN
 {
-    internal class PurchaseOrder
+    public class PurchaseOrder
     {
         public int Id { get; set; }
 

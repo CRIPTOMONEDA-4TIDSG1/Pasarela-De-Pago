@@ -3,7 +3,7 @@ using Crypto.ArqLimpia.BL.DTOs;
 
 namespace Crypto.ArqLimpia.BL.DTOs
 {
-    public class OrderInputDTOs
+    public class CreateOrderInputDTOs
     {
         public int Id {  get; set; }
         public List<CreateProductOutputDTOs> Products { get; set; }

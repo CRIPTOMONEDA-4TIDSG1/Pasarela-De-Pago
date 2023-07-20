@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Crypto.ArqLimpia.EN;
+﻿
 using Crypto.ArqLimpia.BL.DTOs;
+using Crypto.ArqLimpia.EN;
 
 namespace Crypto.ArqLimpia.EN.Interfaces
 {
-    public  interface PucharseOrder
+    public  interface IPucharseOrder
     {
-        void Create(PucharseOrder pOrder);
-        Task<PucharseOrder> GetById(int id);
-        Task<List<PucharseOrder>> Search(SearchOrderInputDTOs pOrder);
-
-
+        void Create(PurchaseOrder pOrder);
+        Task<PurchaseOrder> GetById(int id);
+        Task<List<PurchaseOrder>> Search(PurchaseOrder pOrder);
     }
 }

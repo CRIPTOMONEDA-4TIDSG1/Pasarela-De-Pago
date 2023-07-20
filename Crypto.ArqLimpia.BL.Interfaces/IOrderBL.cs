@@ -6,9 +6,9 @@ namespace Crypto.ArqLimpia.BL.Interfaces
 {
     public interface IOrderBL
     {
-        public List<OrderInputDTOs> GetAllOrders();
-        public OrderInputDTOs GetOrderById(int Id);
-        public void AddOrder(OrderInputDTOs order);
+        public List<CreateOrderInputDTOs> GetAllOrders();
+        public SearchOrderOutputDTOs GetOrderById(int Id);
+        public void AddOrder(CreateOrderInputDTOs order);
 
     }
 }
