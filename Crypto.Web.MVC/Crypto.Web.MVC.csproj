@@ -16,5 +16,8 @@
      <ProjectReference Include="..\Crypto.ArqLimpia.IoC\Crypto.ArqLimpia.IoC.csproj" />
      <ProjectReference Include="..\Crypto.ArqLimpia.BL.Interfaces\Crypto.ArqLimpia.BL.Interfaces.csproj" />
    </ItemGroup>
+   <ItemGroup>
+     <Folder Include="Views\Validaciondecompra\" />
+   </ItemGroup>
 
 </Project>
