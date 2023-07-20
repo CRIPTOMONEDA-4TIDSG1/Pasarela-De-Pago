@@ -22,5 +22,10 @@ namespace Crypto.ArqLimpia.DAL
             OrderEN order = await _dbContext.CryptoOrder.FindAsync(id);
             return order;
         }
+
+        public Task<List<OrderEN>> Search(OrderEN pOrder)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

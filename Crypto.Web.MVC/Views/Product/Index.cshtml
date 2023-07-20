@@ -1,30 +1,44 @@
 ﻿@model IEnumerable<Crypto.ArqLimpia.BL.DTOs.getProductsOutputDTOs>
+<div class="card">
+    <div class="card-header" style="background-color:ghostwhite">
+       Cryptocurrencies
+    </div>
+    <div class="card-body">
 
-@{
-    ViewData["Title"] = "Index";
-}
+        <p>
 
-<h1>Index</h1>
+            <a asp-action="Create" asp-controller="Product" class="btn btn-warning"><i class="bi bi-arrow-left"></i>Create new Cryptocurrencie</a>
+        </p>
+        <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Amount</th>
+                    <th>Action</th>
 
-<p>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ProductName</td>
+                        <td>@item.ProductDescription</td>
+                        <td>@item.price</td>
+                        <td>@item.Amount</td>
+                    
+                        <td>
 
-    <a asp-action="Create" asp-controller="Product" class="btn btn-warning"><i class="bi bi-arrow-left"></i>Create new product</a>
-</p>
-<div class="row">
-    @foreach (var item in Model)
-    {
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">@item.ProductName</h5>
-                    <p class="card-text">@item.ProductDescription</p>
-                    <p class="card-text"><strong>@item.Amount.ToString("C")</strong></p>
-                    <p class="card-text"><strong>price: </strong>@item.price</p>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">View details</a>
-                    <a asp-action="Edit" asp-controller="Product" asp-route-id="@item.Id" class="btn btn-warning"><i class="bi bi-arrow-left"></i>Edit</a>
-                    <a asp-action="Delete" asp-controller="Product" asp-route-id="@item.Id" class="btn btn-warning"><i class="bi bi-arrow-left"></i>Delete</a>
-                </div>
-            </div>
-        </div>
-    }
+                            <a asp-action="CheckOut" asp-controller="CheckOut" class="btn btn-success btn-sm">Comprar</a>
+
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>

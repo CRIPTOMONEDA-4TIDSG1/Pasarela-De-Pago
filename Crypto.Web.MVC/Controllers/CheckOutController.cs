@@ -97,7 +97,7 @@ namespace PASARELASTRIPE.Controllers
                 }
             };
 
-            var domain = "https://localhost:7187/";
+            var domain = "https://localhost:7090/";
 
             var options = new SessionCreateOptions
             {
