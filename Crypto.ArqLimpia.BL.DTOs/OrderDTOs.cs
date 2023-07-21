@@ -1,4 +1,4 @@
-﻿
+﻿using System;
 
 
 namespace Crypto.ArqLimpia.BL.DTOs

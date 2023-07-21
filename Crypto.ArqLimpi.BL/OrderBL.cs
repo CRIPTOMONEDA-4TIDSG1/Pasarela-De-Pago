@@ -11,7 +11,7 @@ namespace Crypto.ArqLimpia.BL{
 
         public OrderBL(IPucharseOrder orderDAL, IUnitOfWork unitOfWork){
             _orderDAL = orderDAL;
-            _unitWork = _unitWork;
+            _unitWork = unitOfWork;
         }
 
         public async Task<CreateOrderInputDTOs> AddOrder(CreateOrderInputDTOs order)

@@ -32,7 +32,7 @@
                     
                         <td>
 
-                            <a asp-action="CheckOut" asp-controller="CheckOut" class="btn btn-success btn-sm">Comprar</a>
+                            <a asp-action="CheckOut" asp-controller="CheckOut" asp-route-productName="@item.ProductName" asp-route-productDescription="@item.ProductDescription" asp-route-price="@item.price" asp-route-amount="@item.Amount" class="btn btn-success btn-sm">Comprar</a>
 
 
                         </td>

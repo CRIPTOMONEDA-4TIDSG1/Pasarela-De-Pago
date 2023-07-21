@@ -2,11 +2,20 @@
 using Stripe;
 using Stripe.Checkout;
 using Crypto.ArqLimpia.EN;
+using Crypto.ArqLimpia.BL.Interfaces;
+using Crypto.ArqLimpia.BL.DTOs;
+
 
 namespace PASARELASTRIPE.Controllers
 {
     public class CheckOutController : Controller
     {
+        private readonly IOrderBL _orderBL;
+
+        public CheckOutController(IOrderBL orderBL) {
+          _orderBL = orderBL;
+        }
+
         public IActionResult Index()
         {
             List<ProductEN> productList = new List<ProductEN>();
@@ -49,7 +58,7 @@ namespace PASARELASTRIPE.Controllers
             if(session.PaymentStatus == "paid")
             {
                 var transaction = session.PaymentIntentId.ToString();
-                return View("Succes");
+                return View();
             }
             return View("Login");
 
@@ -66,65 +75,61 @@ namespace PASARELASTRIPE.Controllers
         }
 
 
-        public IActionResult CheckOut()
+        public IActionResult CheckOut(string productName, string productDescription, decimal price, int Amount)
         {
-            List<ProductEN> productList = new List<ProductEN>();
-            productList = new List<ProductEN>
+            ProductEN product = new ProductEN();
+            product = new ProductEN
             {
-                new ProductEN
-                {
-                    CryptoName = "Bitcoin",
-                    DescriptionCrypto = "Bitcoins is a cryptoCurrenci",
-                    price = 25,
-                    Amount= 2
+                    CryptoName = productName,
+                    DescriptionCrypto = productDescription,
+                    price = price,
+                    Amount= Amount
 
-                },
-                    new ProductEN
-                {
-                    CryptoName = "Ether",
-                    DescriptionCrypto = "Ether is a cryptoCurrenci",
-                    price = 25,
-                    Amount= 2
+             };
 
-                },
-                        new ProductEN
-                {
-                    CryptoName = "NFT",
-                    DescriptionCrypto = "NFT is a cryptoCurrenci",
-                    price = 25,
-                    Amount= 2
-
-                }
+            CreateOrderInputDTOs order = new CreateOrderInputDTOs()
+            {
+                DateOrder = DateTime.Now,
+                CryptoName = productName,
+                email = "kalet@gmail.com",
+                price = price,
+                Amount = Amount,
+                total = (int)price * Amount
             };
 
+            var setOrder = _orderBL.AddOrder(order);
+
+            if (setOrder != null)
+            {
+                throw new Exception("order is not created");
+            }
+            
             var domain = "https://localhost:7090/";
 
             var options = new SessionCreateOptions
             {
-                SuccessUrl=domain + $"CheckOut/OrderConfirmation",
+                SuccessUrl=domain + $"CheckOut/OrderConfirmation/",
                 CancelUrl = domain + "CheckOut/Login",
                 LineItems = new List<SessionLineItemOptions>(),
                 Mode ="payment"
             };
 
-            foreach (var item in productList)
-            {
                 var sessionListItem = new SessionLineItemOptions
                 {
                     PriceData = new SessionLineItemPriceDataOptions
                     {
                         Currency = "usd",
-                        UnitAmount = (long)(item.price * item.Amount),
+                        UnitAmount = (long)(order.price * order.Amount),
                         ProductData = new SessionLineItemPriceDataProductDataOptions
                         {
-                            Name = item.CryptoName.ToString(),
+                            Name = order.CryptoName.ToString(),
                         }
                     },
-                    Quantity = item.Amount
+                    Quantity = order.Amount
                 };
 
                 options.LineItems.Add(sessionListItem);
-            }
+            
 
             var service = new SessionService();
             Session session = service.Create(options);

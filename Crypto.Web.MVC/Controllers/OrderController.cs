@@ -22,7 +22,7 @@ namespace Crypto.ArqLimpia.Web.Controllers
             try
             {
                 var createdOrder = await _orderBL.AddOrder(order);
-                return RedirectToAction(nameof(Index));
+                return View();
             }
             catch (Exception ex)
             {
