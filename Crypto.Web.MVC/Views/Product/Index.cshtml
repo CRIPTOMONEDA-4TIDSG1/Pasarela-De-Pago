@@ -1,44 +1,38 @@
 ﻿@model IEnumerable<Crypto.ArqLimpia.BL.DTOs.getProductsOutputDTOs>
 <div class="card">
-    <div class="card-header" style="background-color:ghostwhite">
-       Cryptocurrencies
+    <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #384B6D; border-bottom: 1px solid #e0e0e0;">
+        <h3 style="margin: 0; padding: 10px; flex: 1; text-align: center; color:gold">CRYPTOCURRENCIES</h3>
+        <a asp-action="Create" asp-controller="Product" class="btn btn-warning">+</a>
     </div>
-    <div class="card-body">
-
-        <p>
-
-            <a asp-action="Create" asp-controller="Product" class="btn btn-warning"><i class="bi bi-arrow-left"></i>Create new Cryptocurrencie</a>
-        </p>
+    <div class="card-body" style="background-color: #FFFFFF;">
         <hr />
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Amount</th>
-                    <th>Action</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@item.ProductName</td>
-                        <td>@item.ProductDescription</td>
-                        <td>@item.price</td>
-                        <td>@item.Amount</td>
-                    
-                        <td>
-
-                            <a asp-action="CheckOut" asp-controller="CheckOut" asp-route-productName="@item.ProductName" asp-route-productDescription="@item.ProductDescription" asp-route-price="@item.price" asp-route-amount="@item.Amount" class="btn btn-success btn-sm">Comprar</a>
-
-
-                        </td>
+        <div class="table-responsive" style="background-color: #FFFFFF;">
+            <table class="table table-bordered table-hover">
+                <thead style="background-color: #384B6D;">
+                    <tr style=" color:gold ">
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                        <th>Action</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ProductName</td>
+                            <td>@item.ProductDescription</td>
+                            <td>@item.price</td>
+                            <td>@item.Amount</td>
+                            <td>
+                                <a asp-action="CheckOut" asp-controller="CheckOut" asp-route-productName="@item.ProductName" asp-route-productDescription="@item.ProductDescription" asp-route-price="@item.price" asp-route-amount="@item.Amount" class="btn btn-success btn-sm">Buy</a>
+                            </td>
+                        </tr>
+                    }
+               
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
