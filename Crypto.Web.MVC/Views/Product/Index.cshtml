@@ -1,38 +1,81 @@
 ﻿@model IEnumerable<Crypto.ArqLimpia.BL.DTOs.getProductsOutputDTOs>
-<div class="card">
-    <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #384B6D; border-bottom: 1px solid #e0e0e0;">
-        <h3 style="margin: 0; padding: 10px; flex: 1; text-align: center; color:gold">CRYPTOCURRENCIES</h3>
-        <a asp-action="Create" asp-controller="Product" class="btn btn-warning">+</a>
-    </div>
-    <div class="card-body" style="background-color: #FFFFFF;">
-        <hr />
-        <div class="table-responsive" style="background-color: #FFFFFF;">
-            <table class="table table-bordered table-hover">
-                <thead style="background-color: #384B6D;">
-                    <tr style=" color:gold ">
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Amount</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>@item.ProductName</td>
-                            <td>@item.ProductDescription</td>
-                            <td>@item.price</td>
-                            <td>@item.Amount</td>
-                            <td>
-                                <a asp-action="CheckOut" asp-controller="CheckOut" asp-route-productName="@item.ProductName" asp-route-productDescription="@item.ProductDescription" asp-route-price="@item.price" asp-route-amount="@item.Amount" class="btn btn-success">Obtain</a>
-                            </td>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor y Tabla de Criptomonedas</title>
+</head>
+<body>
+    
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #384B6D; border-bottom: 1px solid #e0e0e0;">
+            <h3 style="margin: 0; padding: 10px; flex: 1; text-align: center; color:gold">CRYPTOCURRENCIES</h3>
+            <a asp-action="Create" asp-controller="Product" class="btn btn-warning">+</a>
+        </div>
+        <div class="card-body" style="background-color: #FFFFFF;">
+            <hr />
+            <div class="table-responsive" style="background-color: #FFFFFF;">
+                <table class="table table-bordered table-hover">
+                    <thead style="background-color: #384B6D;">
+                        <tr style=" color:gold ">
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Amount</th>
+                            <th>Action</th>
                         </tr>
-                    }
-               
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.ProductName</td>
+                                <td>@item.ProductDescription</td>
+                                <td>
+                                    <input type="number" class="price-input" step="0.01" data-exchangerate="@item.price" data-cryptoname="@item.ProductName" oninput="convertToCrypto(this)">
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center;">
+                                        <input type="text" class="amount-output" disabled>
+                                        <span class="crypto-name" style="margin-left: 5px;"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a asp-action="CheckOut" asp-controller="CheckOut" asp-route-productName="@item.ProductName" asp-route-productDescription="@item.ProductDescription" asp-route-price="@item.price" asp-route-amount="@item.Amount" class="btn btn-success">Obtain</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
+</body>
+</html>
+
+<script>
+    function convertToCrypto(input) {
+        const dollarAmount = parseFloat(input.value);
+        const exchangeRate = parseFloat(input.dataset.exchangerate);
+        const output = input.parentElement.nextElementSibling.querySelector('.amount-output');
+        const cryptoNameSpan = input.parentElement.nextElementSibling.querySelector('.crypto-name');
+
+        if (!isNaN(dollarAmount) && dollarAmount > 0) {
+            const cryptoAmount = dollarAmount / exchangeRate;
+            output.value = cryptoAmount.toFixed(6);
+            cryptoNameSpan.innerText = input.dataset.cryptoname.toUpperCase();
+        } else {
+            output.value = '';
+            cryptoNameSpan.innerText = '';
+        }
+    }
+
+    function convertAllToCrypto() {
+        const priceInputs = document.getElementsByClassName('price-input');
+        for (const input of priceInputs) {
+            convertToCrypto(input);
+        }
+    }
+</script>
