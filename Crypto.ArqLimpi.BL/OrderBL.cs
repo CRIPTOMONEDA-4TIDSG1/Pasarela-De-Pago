@@ -16,19 +16,22 @@ namespace Crypto.ArqLimpia.BL{
 
         public async Task<CreateOrderInputDTOs> AddOrder(CreateOrderInputDTOs order)
         {
-            OrderEN newOrder = new OrderEN(){
-                email = order.email,
+            try{
+                OrderEN newOrder = new OrderEN(){
                 DateOrder = order.DateOrder,
-                CryptoName = order.CryptoName ,
-                price= order.price,
-                Amount = order.Amount,
+                email = order.email,
+                Quantity = order.Quantity,
+                product_id = order.product_id,
                 Total = order.total
             };
 
             _orderDAL.Create(newOrder);
             await _unitWork.SaveChangesAsync();
-
+            
             return order;
+            }catch(Exception err){
+                throw new Exception($"{err}");
+            }
         }
 
         public async Task<OrderEN> GetOrderById(int Id)

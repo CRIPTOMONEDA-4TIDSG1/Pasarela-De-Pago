@@ -8,6 +8,7 @@ namespace Crypto.ArqLimpia.BL
         public static IServiceCollection AddBLDependecies(this IServiceCollection services)
         {
             services.AddTransient<IProductBL, ProductBL>();
+            services.AddTransient<IOrderBL, OrderBL>();
             return services;
         }
     }

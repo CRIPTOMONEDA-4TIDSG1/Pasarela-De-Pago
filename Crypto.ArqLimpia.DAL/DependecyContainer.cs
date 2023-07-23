@@ -17,7 +17,7 @@ namespace Crypto.ArqLimpia.DAL
             var dbName = Environment.GetEnvironmentVariable("DB_NAME");
 
             services.AddDbContext<CryptoDbContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("conn")));
+            options.UseSqlServer($"Server={host};Database={dbName};User Id={user};Password={password};Encrypt=false"));
             services.AddScoped<IProduct, ProductDAL>();
             services.AddScoped<IPucharseOrder, PucharseOrderDAL>();
             services.AddScoped<IUnitOfWork, UnitOfWork >();

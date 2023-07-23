@@ -28,13 +28,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model)
+                         @foreach (var item in Model)
                         {
                             <tr>
                                 <td>@item.ProductName</td>
                                 <td>@item.ProductDescription</td>
                                 <td>
-                                    <input type="number" class="price-input" step="0.01" data-exchangerate="@item.price" data-cryptoname="@item.ProductName" oninput="convertToCrypto(this)">
+                                    <input asp-for="@item.price" type="number" class="price-input" step="0.01" data-exchangerate="@item.price" data-cryptoname="@item.ProductName" oninput="convertToCrypto(this)">
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items: center;">
@@ -43,7 +43,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <a asp-action="CheckOut" asp-controller="CheckOut" asp-route-productName="@item.ProductName" asp-route-productDescription="@item.ProductDescription" asp-route-price="@item.price" asp-route-amount="@item.Amount" class="btn btn-success">Obtain</a>
+                                    <a asp-action="CheckOut" asp-controller="CheckOut" asp-route-Id="@item.Id"  asp-route-price="@item.price"  class="btn btn-success">Obtain</a>
                                 </td>
                             </tr>
                         }

@@ -75,34 +75,21 @@ namespace PASARELASTRIPE.Controllers
         }
 
 
-        public IActionResult CheckOut(string productName, string productDescription, decimal price, int Amount)
+        public IActionResult CheckOut(string productName, decimal price, int Id)
         {
-            ProductEN product = new ProductEN();
-            product = new ProductEN
-            {
-                    CryptoName = productName,
-                    DescriptionCrypto = productDescription,
-                    price = price,
-                    Amount= Amount
-
-             };
-
+            
             CreateOrderInputDTOs order = new CreateOrderInputDTOs()
             {
                 DateOrder = DateTime.Now,
-                CryptoName = productName,
+                Quantity = 23,
                 email = "kalet@gmail.com",
-                price = price,
-                Amount = Amount,
-                total = (int)price * Amount
+                product_id = Id, 
+                total = price * 23
             };
 
             var setOrder = _orderBL.AddOrder(order);
 
-            if (setOrder != null)
-            {
-                throw new Exception("order is not created");
-            }
+           
             
             var domain = "https://localhost:7090/";
 
@@ -119,13 +106,13 @@ namespace PASARELASTRIPE.Controllers
                     PriceData = new SessionLineItemPriceDataOptions
                     {
                         Currency = "usd",
-                        UnitAmount = (long)(order.price * order.Amount),
+                        UnitAmount = (long)(price * 23),
                         ProductData = new SessionLineItemPriceDataProductDataOptions
                         {
-                            Name = order.CryptoName.ToString(),
+                            Name = productName.ToString(),
                         }
                     },
-                    Quantity = order.Amount
+                    Quantity = 23
                 };
 
                 options.LineItems.Add(sessionListItem);

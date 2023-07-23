@@ -12,9 +12,9 @@ namespace Crypto.ArqLimpia.DAL
         {
             dbContext = pDbContext;
         }
-        public async Task<int> SaveChangesAsync()
+        public Task<int> SaveChangesAsync()
         {
-            return await dbContext.SaveChangesAsync();
+            return dbContext.SaveChangesAsync();
 
         }
     }

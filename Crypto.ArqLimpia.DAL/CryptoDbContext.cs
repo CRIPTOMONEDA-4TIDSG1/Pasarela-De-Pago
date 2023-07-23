@@ -11,8 +11,18 @@ namespace Crypto.ArqLimpia.DAL
 
         public CryptoDbContext(DbContextOptions<CryptoDbContext> options) : base(options) { }
        
-        public CryptoDbContext()
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+        modelBuilder.Entity<ProductEN>()
+            .Property(p => p.price)
+            .HasColumnType("decimal(18, 2)"); // Especifica la precisión y la escala de la columna price
+        
+        modelBuilder.Entity<OrderEN>()
+            .Property(o => o.Total)
+            .HasColumnType("decimal(24, 2)"); // Especifica la precisión y la escala de la columna Total
+   
         }
+        
     }
 }
