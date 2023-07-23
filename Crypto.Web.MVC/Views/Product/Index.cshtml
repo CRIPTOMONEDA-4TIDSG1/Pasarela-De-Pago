@@ -82,11 +82,10 @@
      function redirectToCheckOut(id, price, productName) {
         const amountOutput = event.target.parentElement.parentElement.querySelector('#total-price');
         const total = amountOutput.value;
-       
-        // Construye la URL con los parámetros necesarios.
+      
         const url = `/CheckOut/CheckOut?Id=${id}&total=${total}&price=${price}&productName=${productName}`;
         
-        // Realiza la redirección al controlador CheckOut.
+       
         window.location.href = url;
     }
 </script>
