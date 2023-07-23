@@ -75,21 +75,22 @@ namespace PASARELASTRIPE.Controllers
         }
 
 
-        public IActionResult CheckOut(string productName, decimal price, int Id)
+        public IActionResult CheckOut(string productName,decimal price,decimal total, int Id)
         {
+            
+            int amount = (int)total / (int)price;
             
             CreateOrderInputDTOs order = new CreateOrderInputDTOs()
             {
                 DateOrder = DateTime.Now,
-                Quantity = 23,
+                Quantity = amount ,
                 email = "kalet@gmail.com",
                 product_id = Id, 
-                total = price * 23
+                total = total
             };
 
             var setOrder = _orderBL.AddOrder(order);
 
-           
             
             var domain = "https://localhost:7090/";
 
@@ -106,13 +107,13 @@ namespace PASARELASTRIPE.Controllers
                     PriceData = new SessionLineItemPriceDataOptions
                     {
                         Currency = "usd",
-                        UnitAmount = (long)(price * 23),
+                        UnitAmount = (long)(price * 100),
                         ProductData = new SessionLineItemPriceDataProductDataOptions
                         {
                             Name = productName.ToString(),
                         }
                     },
-                    Quantity = 23
+                    Quantity = amount
                 };
 
                 options.LineItems.Add(sessionListItem);
@@ -126,7 +127,7 @@ namespace PASARELASTRIPE.Controllers
             Response.Headers.Add("Location", session.Url);
             return new StatusCodeResult(303);
 
-          
+          return View("Succes");
         }
     }
 }
