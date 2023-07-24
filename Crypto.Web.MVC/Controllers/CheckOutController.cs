@@ -28,8 +28,6 @@ namespace PASARELASTRIPE.Controllers
                 return View();
             }
             return View("Login");
-
-
         }
 
         public IActionResult Succes()
@@ -94,7 +92,6 @@ namespace PASARELASTRIPE.Controllers
             Response.Headers.Add("Location", session.Url);
             return new StatusCodeResult(303);
 
-          return View("Succes");
         }
     }
 }

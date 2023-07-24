@@ -32,11 +32,17 @@ namespace Crypto.ArqLimpia.Web.Controllers
             }
         }
 
-        public async Task<ActionResult> OrderDetails(int id)
+        public async Task<IActionResult> Index(getProductsInputDTOs products)
+        {
+            var list = await _orderBL.getAllOrder();
+            return View(list);
+        }
+
+        public async Task<ActionResult> OrderDetails(int Id)
         {
             try
             {
-                var order = await _orderBL.GetOrderById(id);
+                var order = await _orderBL.GetOrderById(Id);
                 return View(order);
             }
             catch (Exception ex)

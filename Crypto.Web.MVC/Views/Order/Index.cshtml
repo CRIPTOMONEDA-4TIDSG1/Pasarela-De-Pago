@@ -1,0 +1,29 @@
+@model IEnumerable<Crypto.ArqLimpia.BL.DTOs.GetAllOrderOutputDTOs>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Orders</h1>
+     <tbody>
+         @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><p> Fecha: </p> @item.DateOrder</td>
+                                <td><p> Email: </p> @item.email</td>
+                                <td><p> Id cryptomoneda: </p> @item.product_id</td>
+                                <td><p> Cantidad: </p> @item.Quantity</td>
+                                <td><p> Total: </p> @item.total</td>
+                                <td>
+                                    <a asp-action="OrderDetails" asp-route-Id="@item.Id" asp-controller="Order" class="btn btn-warning">obtain</a>
+                                </td>     
+                            </tr>
+                        }
+     </tbody>
+</body>
+</html>
