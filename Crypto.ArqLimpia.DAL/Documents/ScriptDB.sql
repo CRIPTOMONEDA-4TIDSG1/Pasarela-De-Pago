@@ -13,7 +13,7 @@ Amount int not null
 
 create table CryptoOrder(
  Id int identity(1,1) primary key,
- DateOrder date not null,
+ DateOrder datetime not null,
  email varchar (90) not null ,
  product_id int not null references Cryptocurrencies(Id),
  Quantity decimal(24,2) not null,

@@ -25,7 +25,7 @@ namespace PASARELASTRIPE.Controllers
             if(session.PaymentStatus == "paid")
             {
                 var transaction = session.PaymentIntentId.ToString();
-                return View(Succes);
+                return View("Succes");
             }
             return View("Login");
         }
@@ -44,12 +44,14 @@ namespace PASARELASTRIPE.Controllers
         {
             
             int amount = (int)total / (int)price;
-            
+
+            DateTime now = DateTime.Now;
+
             CreateOrderInputDTOs order = new CreateOrderInputDTOs()
             {
-                DateOrder = DateTime.Now,
+                DateOrder = now,
                 Quantity = amount ,
-                email = "kalet@gmail.com",
+                email = "CryptoCurrenciesStripe@gmail.com",
                 product_id = Id, 
                 total = total
             };

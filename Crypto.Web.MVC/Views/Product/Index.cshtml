@@ -10,7 +10,7 @@
 <body>
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #384B6D; border-bottom: 1px solid #e0e0e0;">
-            <a asp-action="Index" asp-controller="Order" class="btn btn-success">Ordenes</a>
+            <a asp-action="Index" asp-controller="Order" class="btn btn-danger">Orders</a>
             <h3 style="margin: 0; padding: 10px; flex: 1; text-align: center; color:gold">CRYPTOCURRENCIES</h3>
             <a asp-action="Create" asp-controller="Product" class="btn btn-warning">+</a>
         </div>
@@ -23,8 +23,8 @@
                         <tr style=" color:gold ">
                             <th>Name</th>
                             <th>Description</th>
-                            <th>Price</th>
-                            <th>Amount</th>
+                            <th>$USD</th>
+                            <th>Total Cryptocurrencie</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -44,7 +44,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <a href="javascript:void(0);" onclick="redirectToCheckOut(@item.Id, @item.price, '@item.ProductName')" class="btn btn-warning">obtain</a>
+                                    <a href="javascript:void(0);" onclick="redirectToCheckOut(@item.Id, @item.price, '@item.ProductName')" class="btn btn-success">Purchase</a>
                                 </td>     
                             </tr>
                         }
