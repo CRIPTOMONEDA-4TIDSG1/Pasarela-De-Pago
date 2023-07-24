@@ -1,6 +1,7 @@
 ﻿
 using Crypto.ArqLimpia.EN;
 using Crypto.ArqLimpia.EN.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Crypto.ArqLimpia.DAL
 {
@@ -17,15 +18,18 @@ namespace Crypto.ArqLimpia.DAL
             _dbContext.CryptoOrder.Add(pOrder);
         }
 
+        
         public async Task<OrderEN> GetById(int id)
         {
             OrderEN order = await _dbContext.CryptoOrder.FindAsync(id);
             return order;
         }
 
-        public Task<List<OrderEN>> Search(OrderEN pOrder)
+        public async Task<List<OrderEN>> Search()
         {
-            throw new NotImplementedException();
+            IQueryable<OrderEN> query = _dbContext.CryptoOrder.AsQueryable();
+
+            return await query.ToListAsync();
         }
     }
 }

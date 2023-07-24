@@ -43,5 +43,11 @@ namespace Crypto.ArqLimpia.BL{
             return order;
             
         }
+
+        public async Task<List<OrderEN>> getAllOrder()
+        {
+            List<OrderEN> orders = await _orderDAL.Search();
+            return orders;
+        }
     }
 }
