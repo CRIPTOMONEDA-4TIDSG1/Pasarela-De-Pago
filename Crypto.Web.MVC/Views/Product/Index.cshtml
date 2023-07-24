@@ -8,7 +8,7 @@
     <title>Conversor y Tabla de Criptomonedas</title>
 </head>
 <body>
-    <a asp-action="OrderDetails" asp-controller="Order">Ordenes</a>
+    <a asp-action="Index" asp-controller="Order">Ordenes</a>
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #384B6D; border-bottom: 1px solid #e0e0e0;">
             <h3 style="margin: 0; padding: 10px; flex: 1; text-align: center; color:gold">CRYPTOCURRENCIES</h3>
@@ -43,7 +43,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <a  class="btn btn-warning">obtain</a>
+                                    <a href="javascript:void(0);" onclick="redirectToCheckOut(@item.Id, @item.price, '@item.ProductName')" class="btn btn-warning">obtain</a>
                                 </td>     
                             </tr>
                         }

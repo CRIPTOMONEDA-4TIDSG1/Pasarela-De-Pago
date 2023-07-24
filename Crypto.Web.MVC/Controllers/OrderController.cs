@@ -32,7 +32,7 @@ namespace Crypto.ArqLimpia.Web.Controllers
             }
         }
 
-        public async Task<IActionResult> Index(getProductsInputDTOs products)
+        public async Task<IActionResult> Index()
         {
             var list = await _orderBL.getAllOrder();
             return View(list);
@@ -40,17 +40,10 @@ namespace Crypto.ArqLimpia.Web.Controllers
 
         public async Task<ActionResult> OrderDetails(int Id)
         {
-            try
-            {
-                var order = await _orderBL.GetOrderById(Id);
+                GetAllOrderOutputDTOs order = await _orderBL.GetOrderById(Id);
+                
                 return View(order);
-            }
-            catch (Exception ex)
-            {
-                // Handle the error and display an error view
-                ViewBag.ErrorMessage = ex.Message;
-                return View("Error");
-            }
+           
         }
     }
 }
