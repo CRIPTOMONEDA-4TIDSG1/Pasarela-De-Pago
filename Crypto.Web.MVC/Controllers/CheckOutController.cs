@@ -16,39 +16,6 @@ namespace PASARELASTRIPE.Controllers
           _orderBL = orderBL;
         }
 
-        public IActionResult Index()
-        {
-            List<ProductEN> productList = new List<ProductEN>();
-            productList = new List<ProductEN>
-            {
-                new ProductEN
-                {
-                    CryptoName = "Bitcoin",
-                    DescriptionCrypto = "Bitcoins is a cryptoCurrenci",
-                    price = 25,
-                    Amount= 2
-
-                },
-                    new ProductEN
-                {
-                    CryptoName= "Ether",
-                    DescriptionCrypto = "Ether is a cryptoCurrenci",
-                    price = 25,
-                    Amount= 2
-
-                },
-                        new ProductEN
-                {
-                    CryptoName= "NFT",
-                    DescriptionCrypto = "NFT is a cryptoCurrenci",
-                    price = 25,
-                    Amount= 2
-
-                }
-            };
-            return View(productList);
-        }
-
         public IActionResult OrderConfirmation()
         {
             var service = new SessionService();

@@ -1,0 +1,17 @@
+﻿@model Crypto.ArqLimpia.BL.DTOs.CreateOrderInputDTOs
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalles del Pedido</title>
+</head>
+<body>
+    <h1>Detalles del Pedido</h1>
+    <p><strong>Fecha del pedido:</strong> @Model.DateOrder.ToString("dd/MM/yyyy")</p>
+    <p><strong>Cantidad:</strong> @Model.Quantity</p>
+    <p><strong>Email:</strong> @Model.email</p>
+    <p><strong>ID del producto:</strong> @Model.product_id</p>
+    <p><strong>Total:</strong> @Model.total.ToString("C")</p>
+    <!-- Puedes mostrar más detalles del pedido aquí según tus necesidades -->
+</body>
+</html>

@@ -11,4 +11,4 @@ namespace Crypto.ArqLimpia.BL.DTOs
         public int Quantity { get; set; }
         public decimal total { get; set; }
     }
-}
+    }
