@@ -1,17 +1,41 @@
-﻿@model Crypto.ArqLimpia.BL.DTOs.GetAllOrderOutputDTOs
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <title>Detalles del Pedido</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css">
 </head>
 <body>
-    <h1>Detalles del Pedido</h1>
-    <p><strong>Fecha del pedido:</strong> @Model.DateOrder</p>
-    <p><strong>Cantidad:</strong> @Model.Quantity</p>
-    <p><strong>Email:</strong> @Model.email</p>
-    <p><strong>ID del producto:</strong> @Model.product_id</p>
-    <p><strong>Total:</strong> @Model.total.ToString("C")</p>
-    <!-- Puedes mostrar más detalles del pedido aquí según tus necesidades -->
+    <div class="container mt-4">
+        <div class="card mx-auto" style="max-width: 400px;">
+            <div class="card-header" style="background-color: #384B6D; border-bottom: 1px solid #e0e0e0; position: relative;">
+                <a asp-action="Index" asp-controller="Order" class="btn btn-danger btn-sm" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%);">X</a>
+                <h3 class="text-center" style="color: gold;">PURCHASE DETAIL</h3>
+            </div>
+            <div class="card-body" style="background-color: #f7f7f7;">
+                <div class="mb-3">
+                    <label for="productName" class="form-label"><strong>Fecha del pedido:</strong></label>
+                    <p class="form-control-plaintext">@Model.DateOrder</p>
+                </div>
+                <div class="mb-3">
+                    <label for="productDescription" class="form-label"><strong>Cantidad:</strong></label>
+                    <p class="form-control-plaintext">@Model.Quantity</p>
+                </div>
+                <div class="mb-3">
+                    <label for="productPrice" class="form-label"><strong>Email:</strong></label>
+                    <p class="form-control-plaintext">@Model.email</p>
+                </div>
+                <div class="mb-3">
+                    <label for="productAmount" class="form-label"><strong>ID del producto:</strong></label>
+                    <p class="form-control-plaintext">@Model.product_id</p>
+                </div>
+                <div class="mb-3">
+                    <label for="productAmount" class="form-label"><strong>Total:</strong></label>
+                    <p class="form-control-plaintext">@Model.total.ToString("C")</p>
+                </div>
+            </div>
+          
+        </div>
+    </div>
 </body>
 </html>

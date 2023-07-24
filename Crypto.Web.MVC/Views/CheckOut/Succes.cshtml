@@ -1,15 +1,27 @@
-﻿<br />
-<br />
-<div class="Container row">
-    <div class="col-12 text-center"
-    <h2 class="text-primary text-center">¡La orden ha sido exitosa!</h2>
-    <br />
-    <br />
-    <img src="~/img/success.png" width="25%"/>
-</div>
-<h3 class="col-12 text-center" style="color:darkred">
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Transacción Cancelada</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css">
+</head>
+<body style="background-color: #f7f7f7;">
+    <div class="container mt-5">
+        <div class="card mx-auto" style="max-width: 400px; background-color: #667692; border-radius: 10px; box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);">
+            <div class="card-body">
+                <div class="container text-center">
+                    <h2 style="font-size: 2.5rem; color: gold;">¡La orden ha sido exitosa!</h2>
+                    <img src="~/img/Check.png" alt="Error" width="150" style="margin-top: 20px;">
+                    <h3 style="color: gold; margin-top: 20px; font-size: 1.2rem;">
+                        Gracias por su compra. Por favor vuelva pronto!!!
+                    </h3>
+                    <br/>
+                    <a asp-action="Index" asp-controller="Product" class="btn btn-warning btn-sm">Ver detalle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
 
-    Gracias por su compra. Por favor vuelva pronto!!!
-</h3>
-
-</div>

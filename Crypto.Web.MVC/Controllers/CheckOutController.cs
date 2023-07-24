@@ -25,7 +25,7 @@ namespace PASARELASTRIPE.Controllers
             if(session.PaymentStatus == "paid")
             {
                 var transaction = session.PaymentIntentId.ToString();
-                return View();
+                return View(Succes);
             }
             return View("Login");
         }
