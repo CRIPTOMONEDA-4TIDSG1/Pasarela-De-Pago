@@ -59,7 +59,7 @@ namespace PASARELASTRIPE.Controllers
             var setOrder = _orderBL.AddOrder(order);
 
             
-            var domain = "https://localhost:7090/";
+            var domain = "https://paymentgateway.somee.com/";
 
             var options = new SessionCreateOptions
             {
