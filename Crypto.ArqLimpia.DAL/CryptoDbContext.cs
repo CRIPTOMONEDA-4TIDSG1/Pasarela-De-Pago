@@ -18,9 +18,6 @@ namespace Crypto.ArqLimpia.DAL
             .Property(p => p.price)
             .HasColumnType("decimal(18, 2)"); // Especifica la precisión y la escala de la columna price
         
-        modelBuilder.Entity<OrderEN>()
-            .Property(o => o.Total)
-            .HasColumnType("decimal(24, 2)"); // Especifica la precisión y la escala de la columna Total
    
         }
         

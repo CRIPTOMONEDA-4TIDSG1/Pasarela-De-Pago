@@ -9,5 +9,6 @@ namespace Crypto.ArqLimpia.EN.Interfaces
         void Create(OrderEN pOrder);
         Task<List<OrderEN>> Search();
         Task<OrderEN> GetById(int id);
+
     }
 }

@@ -19,11 +19,9 @@ namespace Crypto.ArqLimpia.BL{
         {
             try{
                 OrderEN newOrder = new OrderEN(){
-                DateOrder = order.DateOrder,
-                email = order.email,
+               DateOrder = DateTime.Now,
                 Quantity = order.Quantity,
                 product_id = order.product_id,
-                Total = order.total
             };
 
             _orderDAL.Create(newOrder);
@@ -44,10 +42,8 @@ namespace Crypto.ArqLimpia.BL{
             {
                 Id = isOrder.Id,
                 DateOrder = isOrder.DateOrder,
-                email = isOrder.email,
                 product_id = isOrder.product_id,
                 Quantity = isOrder.Quantity,
-                total = isOrder.Total
             };
             return order;
             
@@ -60,10 +56,8 @@ namespace Crypto.ArqLimpia.BL{
             orders.ForEach(p => order.Add(new GetAllOrderOutputDTOs(){
                 Id = p.Id,
                 DateOrder = p.DateOrder,
-                email = p.email,
                 product_id = p.product_id,
                 Quantity = p.Quantity,
-                total = p.Total
             }));
             return order;
         }

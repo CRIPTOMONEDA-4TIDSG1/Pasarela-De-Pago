@@ -21,8 +21,8 @@
                     <thead style="background-color: #384B6D;">
                         <tr style=" color:gold ">
                             <th>Date</th>
-                            <th>Email</th>
                             <th>Crypto ID</th>
+                            <th>Quantity</th>
                             <th>Action</th>
                           
                         </tr>
@@ -33,9 +33,8 @@
                         {
                             <tr>
                                 <td>@item.DateOrder</td>
-                                <td>@item.email</td>
                                 <td>@item.product_id</td>
-                               
+                                <td>@item.Quantity</td>
                                 <td>
                                     <a asp-action="OrderDetails" asp-route-Id="@item.Id" asp-controller="Order" class="btn btn-info">Details</a>
                                 </td>

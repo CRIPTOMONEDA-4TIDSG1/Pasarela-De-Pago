@@ -17,20 +17,25 @@ namespace Crypto.ArqLimpia.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddOrder(CreateOrderInputDTOs order)
+        public async Task<ActionResult> AddOrder(CreateOrderInputDTOs order, int quantity, int product_id)
         {
             try
             {
+                order.Quantity = quantity;
+                order.product_id = product_id;
                 var createdOrder = await _orderBL.AddOrder(order);
-                return View();
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                // Handle the error and display an error view
-                ViewBag.ErrorMessage = ex.Message;
+                // Agregar mensajes de depuración
+                Console.WriteLine($"Error en AddOrder: {ex.Message}");
+                ViewBag.ErrorMessage = "Se produjo un error al agregar la orden.";
                 return View("Error");
             }
         }
+
+
 
         public async Task<IActionResult> Index()
         {

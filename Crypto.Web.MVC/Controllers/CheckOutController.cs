@@ -51,9 +51,8 @@ namespace PASARELASTRIPE.Controllers
             {
                 DateOrder = now,
                 Quantity = amount ,
-                email = "CryptoCurrenciesStripe@gmail.com",
                 product_id = Id, 
-                total = total
+
             };
 
             var setOrder = _orderBL.AddOrder(order);
